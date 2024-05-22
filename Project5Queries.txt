@@ -1,0 +1,4 @@
+/*SELECT year, sum(price) as total_sales from brand_table GROUP by year;*/
+/*SELECT year, count(*) as total_cars_sold from brand_table GROUP by year;*/
+/*SELECT fueltype,COUNT(*) as total_sales, SUM(b.price) as total_amount from brand_table b join fueltype f on b.fuel_ID=f.fuel_ID GROUP by f.fueltype;*/
+/*SELECT b.Country,SUM(f.fuel_prices) as total_fuel_amount from brand_table b join fueltype f on b.fuel_ID=f.fuel_id GROUP by b.Country;*/
