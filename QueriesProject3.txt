@@ -1,0 +1,29 @@
+
+/*Answer 1:- daily logins table is created 
+
+
+/*Queries*/
+
+/*Answer 2*/
+/*SELECT user_id ,COUNT(order_id) from sales_orders GROUP BY user_id;*/
+
+/*Answer 3*/
+/*SELECT COUNT(order_id) as sales_count, SUM(ordered_quantity_accepted*rate) as total_sales FROM sales_orders so JOIN sales_orders_items soi on so.order_id=soi.fk_order_id where so.year>=2020 AND so.year<=2021;*/
+/*SELECT COUNT(DISTINCT(user_id)) as user_count from sales_orders WHERE year = 2021 OR year=2020;*/
+/*SELECT s.year, SUM(sl.order_quantity_accepted) as total_acceptance FROM sales_orders s JOIN sales_orders_items sl on s.order_id=sl.fk_order_id GROUP by s.year HAVING s.year = 2021 OR s.year=2020;*/
+/*SELECT year,count(order_id) as successful_order from sales_orders where sales_order_status='Shipped' AND year = 2020 OR year=2021 GROUP by year; */
+
+/*Answer 4*/
+/*SELECT  fk_product_id,SUM(ordered_quantity*rate) as total_sales_amount from sales_orders JOIN sales_orders_items on sales_orders.order_id=sales_orders_items.fk_order_id GROUP by fk_buyer_id HAVING year>=2020 AND year<=2021 order by total_sales_amount DESC LIMIT 10;*/
+
+/*Answer 5*/
+/*SELECT sales_order_status,count(order_id) as status_result_count from sales_orders GROUP by sales_order_status HAVING year=2019;*/
+SELECT fk_product_id,SUM(order_quantity_accepted) as total_acceptence FROM sales_orders_items GROUP by fk_product_id order BY total_acceptence ASC;
+/*SELECT l.user_id,COUNT(l.user_id) as total_login,COUNT(s.order_id) as total_order from login_logs l left outer join sales_orders s on l.user_id=s.user_id GROUP by l.user_id having l.user_id not NULL;*/
+/*SELECT creation_time, COUNT(creation_time) as order_time from sales_orders GROUP by creation_time order by order_time DESC limit 10;*/
+
+/*SELECT fk_product_id ,SUM(order_quantity_accepted*rate) as total_sale_amount from sales_orders_items GROUP by fk_product_id order by total_sale_amount DESC LIMIT 10;*/
+
+/*SELECT fk_product_id,SUM(ordered_quantity_accepted) as quantity from sales_orders_items GROUP by fk_product_id order by quantity DESC LIMIT 10;*/
+
+/*SELECT fk_product_id as product,COUNT(order_item_id) as total_order from sales_orders_items GROUP by fk_product_id order by total_order DESC;*/
